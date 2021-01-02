@@ -1,0 +1,13 @@
+import { createAction } from 'redux-actions';
+
+export const GET_PRODUCTS_BY_QUERY = createAction('GET_PRODUCTS_BY_QUERY_REQUEST');
+export const GET_PRODUCTS_BY_QUERY_SUCCESS = createAction('GET_PRODUCTS_BY_QUERY_SUCCESS');
+export const GET_PRODUCTS_BY_QUERY_FAIL = createAction('GET_PRODUCTS_BY_QUERY_FAIL');
+
+export const GET_PRODUCTS_BY_CATEGORIES = createAction('GET_PRODUCTS_BY_CATEGORIES_REQUEST');
+export const GET_PRODUCTS_BY_CATEGORIES_SUCCESS = createAction(
+  'GET_PRODUCTS_BY_CATEGORIES_SUCCESS'
+);
+export const GET_PRODUCTS_BY_CATEGORIES_FAIL = createAction('GET_PRODUCTS_BY_CATEGORIES_FAIL');
+
+export const SET_LOGIN_MODAL_SHOWED = createAction('SET_LOGIN_MODAL_SHOWED');

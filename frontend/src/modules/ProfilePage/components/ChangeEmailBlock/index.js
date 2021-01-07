@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 
 import { DEFAULT_INPUT_LENGTH } from 'constants/inputOptions.js';
-import CommonInput from 'commonComponents/CommonInput';
-import CommonButton from '../../../../commonComponents/CommonButton';
+import CommonInput from 'common/components/CommonInput';
+import CommonButton from '../../../../common/components/CommonButton';
 import { SETTING_AREAS } from '../Tabs/ProfileTab/config';
 import { profileSettingsValidator } from '../Tabs/validators/profileFormValidators';
 

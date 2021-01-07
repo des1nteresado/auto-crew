@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { Grid, Typography, withStyles } from '@material-ui/core';
 
 import ROUTES from 'routes';
-import TabSwitcher from 'commonComponents/TabSwitcher';
-import CommonLayoutContainer from 'commonComponents/layouts/CommonLayout/containers/CommonLayoutContainer';
+import TabSwitcher from 'common/components/TabSwitcher';
+import CommonLayoutContainer from 'common/layouts/CommonLayout/containers/CommonLayoutContainer';
 import { TAB_ROUTES } from '../../config';
 
 import styles from './styles';

@@ -8,7 +8,7 @@ import ChangeEmailBlock from '../../../ChangeEmailBlock';
 import ChangeInfoBlock from '../../../ChangeInfoBlock';
 
 import styles from './styles.js';
-import Snack from '../../../../../../commonComponents/SnackBar';
+import Snack from '../../../../../../common/components/SnackBar';
 
 const UserSettingsTab = ({
   classes,

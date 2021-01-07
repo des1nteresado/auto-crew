@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 
-import CommonInput from 'commonComponents/CommonInput';
+import CommonInput from 'common/components/CommonInput';
 import { INVALID_PHONE } from 'constants/errorMessages';
 import { validatePhone } from 'helpers/validations';
 import { DEFAULT_INPUT_LENGTH } from 'constants/inputOptions';
-import CommonButton from 'commonComponents/CommonButton';
+import CommonButton from 'common/components/CommonButton';
 import { SETTING_AREAS } from '../Tabs/ProfileTab/config';
 
 import styles from './styles.js';

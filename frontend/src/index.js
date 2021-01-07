@@ -12,7 +12,7 @@ import './static/styles/reset.css';
 
 import theme from './theme';
 import { configureStore } from './store/configureStore';
-import MainLayout from './commonComponents/layouts/MainLayout/components/MainLayout';
+import MainLayout from './common/layouts/MainLayout/components/MainLayout';
 
 const store = configureStore();
 const persistor = persistStore(store);

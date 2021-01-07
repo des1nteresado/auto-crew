@@ -4,15 +4,15 @@ import { withStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 
 import { INVALID_BASE_INPUT, INVALID_PASSWORD_CONFIRM } from 'constants/errorMessages';
-import CommonInput from 'commonComponents/CommonInput';
-import CommonButton from '../../../../commonComponents/CommonButton';
+import CommonInput from 'common/components/CommonInput';
+import CommonButton from '../../../../common/components/CommonButton';
 import { SETTING_AREAS } from '../Tabs/ProfileTab/config';
 import {
   validateConfirmPassword,
   validatePassword,
   validateBaseInput,
   getPasswordError,
-} from '../../../../commonComponents/RegisterModal/helpers/validations';
+} from '../../../../common/RegisterModal/helpers/validations';
 
 import styles from './styles.js';
 

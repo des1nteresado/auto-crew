@@ -2,11 +2,10 @@ import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
+import Snack from 'common/components/SnackBar';
 import { validateEmail } from 'helpers/validations';
 import { validatePassword, validateConfirmPassword } from '../helpers/validations';
-
 import RegisterModal from '../components/RegisterModal';
-import Snack from '../../components/SnackBar';
 import { CLEAR_REGISTER_MESSAGE, SIGN_UP } from '../actions';
 
 const initialState = {

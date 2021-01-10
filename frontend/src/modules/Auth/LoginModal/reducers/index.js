@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 
 import * as actions from '../actions/index';
-import { UPDATE_USER_PROFILE_SUCCESS } from '../../../modules/ProfilePage/components/Tabs/ProfileTab/actions';
+import { UPDATE_USER_PROFILE_SUCCESS } from '../../../ProfilePage/components/Tabs/ProfileTab/actions';
 
 const defaultState = {
   _id: null,

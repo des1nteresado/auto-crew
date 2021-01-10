@@ -1,20 +1,20 @@
 import * as homeActions from 'modules/HomePage/actions/index';
 import * as homeAPI from 'modules/HomePage/api/index';
 
-import * as registerAction from '../common/RegisterModal/actions/index';
-import * as registerAPI from '../common/RegisterModal/api/index';
+import * as registerAction from '../modules/Auth/RegisterModal/actions/index';
+import * as registerAPI from '../modules/Auth/RegisterModal/api/index';
 
 import * as commonLayoutActions from '../common/layouts/CommonLayout/actions/index';
 import * as commonLayoutAPI from '../common/layouts/CommonLayout/api/index';
 
-import * as loginActions from '../common/LoginModal/actions/index';
-import * as loginAPI from '../common/LoginModal/api/index';
+import * as loginActions from '../modules/Auth/LoginModal/actions/index';
+import * as loginAPI from '../modules/Auth/LoginModal/api/index';
 
 import * as userActions from '../modules/ProfilePage/components/Tabs/ProfileTab/actions';
 import * as userAPI from '../modules/ProfilePage/components/Tabs/ProfileTab/api';
 
-import * as resetPasswordActions from '../common/ResetPasswordModal/actions';
-import * as resetPasswordApi from '../common/ResetPasswordModal/api';
+import * as resetPasswordActions from '../modules/Auth/ResetPasswordModal/actions';
+import * as resetPasswordApi from '../modules/Auth/ResetPasswordModal/api';
 
 // @ TODO: update routing (tokenization example)
 

@@ -12,7 +12,7 @@ import {
   validatePassword,
   validateBaseInput,
   getPasswordError,
-} from '../../../../common/RegisterModal/helpers/validations';
+} from '../../../Auth/RegisterModal/helpers/validations';
 
 import styles from './styles.js';
 

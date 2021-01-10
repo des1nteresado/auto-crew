@@ -4,9 +4,9 @@ import { Box, Container, withStyles } from '@material-ui/core';
 
 import HeaderContainer from 'common/components/Header/containers/HeaderContainer';
 import Footer from 'common/components/Footer/components/Footer';
-import LoginModalContainer from 'common/LoginModal/containers/LoginModalContainer';
-import RegisterModalContainer from 'common/RegisterModal/containers/RegisterModalContainer';
-import ResetPasswordModalContainer from 'common/ResetPasswordModal/containers/ResetPasswordModalContainer';
+import LoginModalContainer from 'modules/Auth/LoginModal/containers/LoginModalContainer';
+import RegisterModalContainer from 'modules/Auth/RegisterModal/containers/RegisterModalContainer';
+import ResetPasswordModalContainer from 'modules/Auth/ResetPasswordModal/containers/ResetPasswordModalContainer';
 
 import styles from './styles';
 

@@ -3,7 +3,7 @@ import {
   INVALID_PASSWORD_LOWERCASE,
   INVALID_PASSWORD_UPPERCASE,
   INVALID_PASSWORD_SPECIAL_CHARACTER,
-} from '../../../constants/errorMessages';
+} from 'constants/errorMessages';
 
 function isCorrectPasswordLength(password) {
   return password.length >= 8;

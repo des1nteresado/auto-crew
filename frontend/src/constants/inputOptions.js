@@ -1,0 +1,2 @@
+export const DEFAULT_INPUT_LENGTH = 50;
+export const ADDRESS_INPUT_LENGTH = 100;

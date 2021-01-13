@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutocompleteInput renders AutocompleteInput component correctly 1`] = `
+<AutocompleteInput
+  autocompleteValue={Object {}}
+  classes={
+    Object {
+      "autocompleteInput": "AutocompleteInput-autocompleteInput-1",
+      "autocompleteList": "AutocompleteInput-autocompleteList-2",
+    }
+  }
+  error={false}
+  getOptionLabel={[Function]}
+  helperText=""
+  inputValue=""
+  label=""
+  name="test name"
+  onAutocompleteChange={[Function]}
+  onInputChange={[Function]}
+  style=""
+  type="text"
+  valuesList={Array []}
+/>
+`;

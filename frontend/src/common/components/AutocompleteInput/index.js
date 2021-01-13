@@ -64,7 +64,7 @@ AutocompleteInput.defaultProps = {
   error: false,
   onAutocompleteChange: () => {},
   onInputChange: () => {},
-  getOptionLabel: () => {},
+  getOptionLabel: () => '',
 };
 
 AutocompleteInput.propTypes = {

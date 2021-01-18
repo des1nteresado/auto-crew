@@ -9,13 +9,13 @@ exports[`AutocompleteInput renders AutocompleteInput component correctly 1`] = `
       "autocompleteList": "AutocompleteInput-autocompleteList-2",
     }
   }
-  error={false}
+  error={true}
   getOptionLabel={[Function]}
-  helperText=""
+  helperText="error text"
   inputValue=""
   label=""
-  name="test name"
-  onAutocompleteChange={[Function]}
+  name="name"
+  onAutocompleteChange={[MockFunction]}
   onInputChange={[Function]}
   style=""
   type="text"

@@ -1,55 +1,48 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 
 import AutocompleteInput from 'common/components/AutocompleteInput';
 import { useNakedComponent } from 'helpers/hooks/useNakedComponent';
 
-const testProps = {
-  name: 'test name',
+const defaultProps = {
+  name: 'name',
+  error: true,
+  helperText: 'error text',
+  onAutocompleteChange: jest.fn(),
 };
 
-const setUp = (props) => shallow(<AutocompleteInput {...props} />);
+const setUp = (props) => shallow(<AutocompleteInput {...defaultProps} {...props} />);
 
 describe('AutocompleteInput', () => {
-  const mockSetState = jest.fn();
-
-  jest.mock('react', () => ({
-    useState: (initial) => [initial, mockSetState],
-  }));
-
-  // const useStateSpy = jest.spyOn(React, 'useState');
-  // useStateSpy.mockImplementation((init) => [init, setState]);
-
   let component;
 
   beforeEach(() => {
-    component = setUp(testProps);
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks();
+    component = setUp();
   });
 
   it('renders AutocompleteInput component correctly', () => {
     expect(component).toMatchSnapshot();
   });
 
-  // @TODO: figure out why it isn't working
-  it('updates state correctly when input blur callback is calling', async () => {
-    const autocompleteInput = mount(<AutocompleteInput {...testProps} />);
+  it('shows error helperText when error prop is passed and input is touched', () => {
+    const autocompleteInput = mount(<AutocompleteInput {...defaultProps} />);
     const input = autocompleteInput.find('input');
 
-    expect(input.props().name).toBe('test name');
-    // input.simulate('blur');
+    expect(input.props().name).toBe(defaultProps.name);
 
-    act(() => input.simulate('blur'));
+    input.simulate('blur');
 
-    // autocompleteInput.update();
+    const p = autocompleteInput.find('p');
 
-    expect(mockSetState).toHaveBeenCalledWith(true);
+    expect(p.text()).toBe(defaultProps.helperText);
+  });
 
-    // console.log(input.debug());
+  it('calls onAutocompleteChange when onChange event is triggered', () => {
+    const testValue = 'value';
+    const autocompleteInput = component.find('AutocompleteInput');
+    autocompleteInput.props().onAutocompleteChange(testValue);
+
+    expect(defaultProps.onAutocompleteChange).toHaveBeenCalledWith(testValue);
   });
 
   describe('default props', () => {

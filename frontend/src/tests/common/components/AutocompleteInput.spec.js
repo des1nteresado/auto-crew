@@ -1,23 +1,30 @@
 import React from 'react';
+import { shallow, mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 
 import AutocompleteInput from 'common/components/AutocompleteInput';
 import { useNakedComponent } from 'helpers/hooks/useNakedComponent';
 
-const props = {
+const testProps = {
   name: 'test name',
 };
 
 const setUp = (props) => shallow(<AutocompleteInput {...props} />);
 
 describe('AutocompleteInput', () => {
-  const setState = jest.fn();
-  const useStateSpy = jest.spyOn(React, 'useState');
-  useStateSpy.mockImplementation((init) => [init, setState]);
+  const mockSetState = jest.fn();
+
+  jest.mock('react', () => ({
+    useState: (initial) => [initial, mockSetState],
+  }));
+
+  // const useStateSpy = jest.spyOn(React, 'useState');
+  // useStateSpy.mockImplementation((init) => [init, setState]);
 
   let component;
 
   beforeEach(() => {
-    component = setUp(props);
+    component = setUp(testProps);
   });
 
   afterEach(() => {
@@ -29,13 +36,20 @@ describe('AutocompleteInput', () => {
   });
 
   // @TODO: figure out why it isn't working
-  it('updates state correctly when input blur callback is calling', () => {
-    const component = mount(<AutocompleteInput {...props} />);
-    const input = component.find('input');
+  it('updates state correctly when input blur callback is calling', async () => {
+    const autocompleteInput = mount(<AutocompleteInput {...testProps} />);
+    const input = autocompleteInput.find('input');
 
     expect(input.props().name).toBe('test name');
-    input.simulate('blur');
-    expect(setState).toHaveBeenCalledWith(true);
+    // input.simulate('blur');
+
+    act(() => input.simulate('blur'));
+
+    // autocompleteInput.update();
+
+    expect(mockSetState).toHaveBeenCalledWith(true);
+
+    // console.log(input.debug());
   });
 
   describe('default props', () => {

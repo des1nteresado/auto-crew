@@ -22,7 +22,7 @@ const AutocompleteInput = ({
 
   const onBlur = useCallback(() => {
     setIsTouched(true);
-  }, [setIsTouched]);
+  }, []);
 
   return (
     <Autocomplete

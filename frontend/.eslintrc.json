@@ -30,6 +30,7 @@
         "allowTernary": true
       }
     ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/jsx-closing-bracket-location": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off",

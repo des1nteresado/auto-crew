@@ -1,8 +1,9 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 
 import Breadcrumbs from 'common/components/Breadcrumbs';
 
-const props = {
+const testProps = {
   children: <div>Test</div>,
 };
 
@@ -11,7 +12,7 @@ const setUp = (props) => shallow(<Breadcrumbs {...props} />);
 describe('Breadcrumbs', () => {
   let component;
   beforeEach(() => {
-    component = setUp(props);
+    component = setUp(testProps);
   });
 
   it('renders Breadcrumbs component correctly', () => {

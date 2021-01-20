@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import Breadcrumbs from 'common/components/Breadcrumbs';
 
@@ -7,7 +7,7 @@ const testProps = {
   children: <div>Test</div>,
 };
 
-const setUp = (props) => shallow(<Breadcrumbs {...props} />);
+const setUp = (props) => mount(<Breadcrumbs {...props} />);
 
 describe('Breadcrumbs', () => {
   let component;

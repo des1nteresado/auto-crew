@@ -37,6 +37,7 @@ describe('AutocompleteInput', () => {
     expect(p.text()).toBe(defaultProps.helperText);
   });
 
+  // @TODO: improve test
   it('calls onAutocompleteChange when onChange event is triggered', () => {
     const testValue = 'value';
     const autocompleteInput = component.find('AutocompleteInput');

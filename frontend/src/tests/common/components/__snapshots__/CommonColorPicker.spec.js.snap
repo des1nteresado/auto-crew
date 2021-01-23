@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommonColorPicker renders CommonColorPicker component correctly 1`] = `
+<CommonColorPicker
+  classes={
+    Object {
+      "colorSecondary": "CommonColorPicker-colorSecondary-2",
+      "root": "CommonColorPicker-root-1",
+    }
+  }
+  disabled={false}
+  selectedValue="value"
+  value="value"
+/>
+`;

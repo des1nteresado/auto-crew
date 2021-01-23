@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import CommonColorPicker from 'common/components/CommonColorPicker';
-import { useNakedComponent } from 'helpers/hooks/useNakedComponent';
 
 const defaultProps = {
   value: 'value',

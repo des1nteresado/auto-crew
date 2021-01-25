@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import Loading from 'common/components/Loading';
+import Loading from 'common/components/Loader';
 import { SET_LOGIN_MODAL_SHOWED } from 'common/layouts/CommonLayout/actions';
 import CommonLayout from '../components/CommonLayout';
 

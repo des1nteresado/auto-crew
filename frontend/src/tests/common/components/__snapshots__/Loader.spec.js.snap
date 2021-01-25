@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader renders Loader component correctly 1`] = `
+<WithStyles(Loader)
+  style="style"
+>
+  <Loader
+    classes={
+      Object {
+        "loader": "Loader-loader-1",
+      }
+    }
+    isLoading={false}
+    style="style"
+  >
+    <WithStyles(ForwardRef(Backdrop))
+      className="Loader-loader-1 style"
+      open={false}
+    >
+      <ForwardRef(Backdrop)
+        className="Loader-loader-1 style"
+        classes={
+          Object {
+            "invisible": "MuiBackdrop-invisible",
+            "root": "MuiBackdrop-root",
+          }
+        }
+        open={false}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <Transition
+            appear={true}
+            enter={true}
+            exit={true}
+            in={false}
+            mountOnEnter={false}
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={
+              Object {
+                "enter": 225,
+                "exit": 195,
+              }
+            }
+            unmountOnExit={false}
+          >
+            <div
+              aria-hidden={true}
+              className="MuiBackdrop-root Loader-loader-1 style"
+              style={
+                Object {
+                  "opacity": 0,
+                  "visibility": "hidden",
+                }
+              }
+            >
+              <WithStyles(ForwardRef(CircularProgress))>
+                <ForwardRef(CircularProgress)
+                  classes={
+                    Object {
+                      "circle": "MuiCircularProgress-circle",
+                      "circleDisableShrink": "MuiCircularProgress-circleDisableShrink",
+                      "circleIndeterminate": "MuiCircularProgress-circleIndeterminate",
+                      "circleStatic": "MuiCircularProgress-circleStatic",
+                      "colorPrimary": "MuiCircularProgress-colorPrimary",
+                      "colorSecondary": "MuiCircularProgress-colorSecondary",
+                      "indeterminate": "MuiCircularProgress-indeterminate",
+                      "root": "MuiCircularProgress-root",
+                      "static": "MuiCircularProgress-static",
+                      "svg": "MuiCircularProgress-svg",
+                    }
+                  }
+                >
+                  <div
+                    className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+                    role="progressbar"
+                    style={
+                      Object {
+                        "height": 40,
+                        "width": 40,
+                      }
+                    }
+                  >
+                    <svg
+                      className="MuiCircularProgress-svg"
+                      viewBox="22 22 44 44"
+                    >
+                      <circle
+                        className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                        cx={44}
+                        cy={44}
+                        fill="none"
+                        r={20.2}
+                        strokeWidth={3.6}
+                        style={Object {}}
+                      />
+                    </svg>
+                  </div>
+                </ForwardRef(CircularProgress)>
+              </WithStyles(ForwardRef(CircularProgress))>
+            </div>
+          </Transition>
+        </ForwardRef(Fade)>
+      </ForwardRef(Backdrop)>
+    </WithStyles(ForwardRef(Backdrop))>
+  </Loader>
+</WithStyles(Loader)>
+`;

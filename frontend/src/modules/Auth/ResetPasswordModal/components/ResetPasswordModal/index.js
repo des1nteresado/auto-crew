@@ -9,7 +9,7 @@ import CommonDialog from 'common/components/CommonDialog';
 import CommonButton from 'common/components/CommonButton';
 import CommonInput from 'common/components/CommonInput';
 import Snack from 'common/components/SnackBar';
-import Loading from 'common/components/Loading';
+import Loading from 'common/components/Loader';
 
 import styles from './styles';
 

@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MobileBreadcrumbs renders MobileBreadcrumbs component correctly 1`] = `
+<WithStyles(MobileBreadcrumbs)
+  currentPage="pageNumber"
+>
+  <MobileBreadcrumbs
+    classes={
+      Object {
+        "breadcrumbContainer": "MobileBreadcrumbs-breadcrumbContainer-1",
+        "currentPage": "MobileBreadcrumbs-currentPage-2",
+        "emptyStub": "MobileBreadcrumbs-emptyStub-3",
+      }
+    }
+    currentPage="pageNumber"
+    onClickHandler={[Function]}
+    withFilterButton={false}
+  >
+    <Styled(MuiBox)
+      className="MobileBreadcrumbs-breadcrumbContainer-1"
+    >
+      <div
+        className="MuiBox-root MuiBox-root-4 MobileBreadcrumbs-breadcrumbContainer-1"
+      >
+        <CommonButton
+          label="Back"
+          onClick={[MockFunction]}
+          size="small"
+          startIcon={<UNDEFINED />}
+          variant="text"
+        >
+          <WithStyles(ForwardRef(Button))
+            disableFocusRipple={true}
+            disableRipple={true}
+            disabled={false}
+            onClick={[MockFunction]}
+            size="small"
+            startIcon={<UNDEFINED />}
+            variant="text"
+          >
+            <ForwardRef(Button)
+              classes={
+                Object {
+                  "colorInherit": "MuiButton-colorInherit",
+                  "contained": "MuiButton-contained",
+                  "containedPrimary": "MuiButton-containedPrimary",
+                  "containedSecondary": "MuiButton-containedSecondary",
+                  "containedSizeLarge": "MuiButton-containedSizeLarge",
+                  "containedSizeSmall": "MuiButton-containedSizeSmall",
+                  "disableElevation": "MuiButton-disableElevation",
+                  "disabled": "Mui-disabled",
+                  "endIcon": "MuiButton-endIcon",
+                  "focusVisible": "Mui-focusVisible",
+                  "fullWidth": "MuiButton-fullWidth",
+                  "iconSizeLarge": "MuiButton-iconSizeLarge",
+                  "iconSizeMedium": "MuiButton-iconSizeMedium",
+                  "iconSizeSmall": "MuiButton-iconSizeSmall",
+                  "label": "MuiButton-label",
+                  "outlined": "MuiButton-outlined",
+                  "outlinedPrimary": "MuiButton-outlinedPrimary",
+                  "outlinedSecondary": "MuiButton-outlinedSecondary",
+                  "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                  "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                  "root": "MuiButton-root",
+                  "sizeLarge": "MuiButton-sizeLarge",
+                  "sizeSmall": "MuiButton-sizeSmall",
+                  "startIcon": "MuiButton-startIcon",
+                  "text": "MuiButton-text",
+                  "textPrimary": "MuiButton-textPrimary",
+                  "textSecondary": "MuiButton-textSecondary",
+                  "textSizeLarge": "MuiButton-textSizeLarge",
+                  "textSizeSmall": "MuiButton-textSizeSmall",
+                }
+              }
+              disableFocusRipple={true}
+              disableRipple={true}
+              disabled={false}
+              onClick={[MockFunction]}
+              size="small"
+              startIcon={<UNDEFINED />}
+              variant="text"
+            >
+              <WithStyles(ForwardRef(ButtonBase))
+                className="MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
+                component="button"
+                disableRipple={true}
+                disabled={false}
+                focusRipple={false}
+                focusVisibleClassName="Mui-focusVisible"
+                onClick={[MockFunction]}
+                type="button"
+              >
+                <ForwardRef(ButtonBase)
+                  className="MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
+                  classes={
+                    Object {
+                      "disabled": "Mui-disabled",
+                      "focusVisible": "Mui-focusVisible",
+                      "root": "MuiButtonBase-root",
+                    }
+                  }
+                  component="button"
+                  disableRipple={true}
+                  disabled={false}
+                  focusRipple={false}
+                  focusVisibleClassName="Mui-focusVisible"
+                  onClick={[MockFunction]}
+                  type="button"
+                >
+                  <button
+                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[MockFunction]}
+                    onDragLeave={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex={0}
+                    type="button"
+                  >
+                    <span
+                      className="MuiButton-label"
+                    >
+                      <span
+                        className="MuiButton-startIcon MuiButton-iconSizeSmall"
+                      >
+                        <ForwardRef>
+                          <WithStyles(ForwardRef(SvgIcon))>
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M16.62 2.99c-.49-.49-1.28-.49-1.77 0L6.54 11.3c-.39.39-.39 1.02 0 1.41l8.31 8.31c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.38 12l7.25-7.25c.48-.48.48-1.28-.01-1.76z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                      Back
+                    </span>
+                  </button>
+                </ForwardRef(ButtonBase)>
+              </WithStyles(ForwardRef(ButtonBase))>
+            </ForwardRef(Button)>
+          </WithStyles(ForwardRef(Button))>
+        </CommonButton>
+        <WithStyles(ForwardRef(Typography))
+          className="MobileBreadcrumbs-currentPage-2"
+        >
+          <ForwardRef(Typography)
+            className="MobileBreadcrumbs-currentPage-2"
+            classes={
+              Object {
+                "alignCenter": "MuiTypography-alignCenter",
+                "alignJustify": "MuiTypography-alignJustify",
+                "alignLeft": "MuiTypography-alignLeft",
+                "alignRight": "MuiTypography-alignRight",
+                "body1": "MuiTypography-body1",
+                "body2": "MuiTypography-body2",
+                "button": "MuiTypography-button",
+                "caption": "MuiTypography-caption",
+                "colorError": "MuiTypography-colorError",
+                "colorInherit": "MuiTypography-colorInherit",
+                "colorPrimary": "MuiTypography-colorPrimary",
+                "colorSecondary": "MuiTypography-colorSecondary",
+                "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                "displayBlock": "MuiTypography-displayBlock",
+                "displayInline": "MuiTypography-displayInline",
+                "gutterBottom": "MuiTypography-gutterBottom",
+                "h1": "MuiTypography-h1",
+                "h2": "MuiTypography-h2",
+                "h3": "MuiTypography-h3",
+                "h4": "MuiTypography-h4",
+                "h5": "MuiTypography-h5",
+                "h6": "MuiTypography-h6",
+                "noWrap": "MuiTypography-noWrap",
+                "overline": "MuiTypography-overline",
+                "paragraph": "MuiTypography-paragraph",
+                "root": "MuiTypography-root",
+                "srOnly": "MuiTypography-srOnly",
+                "subtitle1": "MuiTypography-subtitle1",
+                "subtitle2": "MuiTypography-subtitle2",
+              }
+            }
+          >
+            <p
+              className="MuiTypography-root MobileBreadcrumbs-currentPage-2 MuiTypography-body1"
+            >
+              pageNumber
+            </p>
+          </ForwardRef(Typography)>
+        </WithStyles(ForwardRef(Typography))>
+        <Styled(MuiBox)
+          className="MobileBreadcrumbs-emptyStub-3"
+        >
+          <div
+            className="MuiBox-root MuiBox-root-5 MobileBreadcrumbs-emptyStub-3"
+          />
+        </Styled(MuiBox)>
+      </div>
+    </Styled(MuiBox)>
+  </MobileBreadcrumbs>
+</WithStyles(MobileBreadcrumbs)>
+`;

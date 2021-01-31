@@ -19,7 +19,7 @@ describe('Breadcrumbs', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('rendrers Breadcrumbs children prop correclty', () => {
+  it('renders Breadcrumbs children prop correclty', () => {
     const div = component.find('div');
 
     expect(div).toHaveLength(1);

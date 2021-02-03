@@ -1,11 +1,14 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 
 import SnackBar from 'common/components/SnackBar';
 import { useNakedComponent } from 'helpers/hooks/useNakedComponent';
 
 const defaultProps = {
   message: 'status message',
+  onHandleClose: jest.fn(),
+  isSuccess: true,
 };
 
 const setUp = (props) => mount(<SnackBar {...defaultProps} {...props} />);
@@ -13,11 +16,9 @@ const setUp = (props) => mount(<SnackBar {...defaultProps} {...props} />);
 describe('SnackBar', () => {
   let component;
   let useEffectSpy;
-  let useCallbackSpy;
 
   beforeEach(() => {
     useEffectSpy = jest.spyOn(React, 'useEffect');
-    useCallbackSpy = jest.spyOn(React, 'useCallback');
     component = setUp();
   });
 
@@ -29,23 +30,45 @@ describe('SnackBar', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('renders snackBar if message is not empty', () => {
+  it('displays snackBar if message is not empty', () => {
+    const snackBar = component.find('WithStyles(ForwardRef(Snackbar))');
+
     expect(useEffectSpy).toHaveBeenCalled();
+    expect(snackBar.props().open).toBeTruthy();
   });
 
-  it('renders snackBar if message is not empty 22', async () => {
+  it('hides snackBar after a short delay', async () => {
     const snackBar = component.find('WithStyles(ForwardRef(Snackbar))');
 
     expect(snackBar.props().open).toBeTruthy();
 
-    // snackBar.props().onClose();
-
-    // expect(component.props().onHandleClose).toHaveBeenCalled();
-
     setTimeout(() => {
-      expect(useCallbackSpy).toHaveBeenCalled();
+      expect(defaultProps.onHandleClose).toHaveBeenCalled();
       expect(snackBar.props().open).toBeFalsy();
     }, 7000);
+  });
+
+  it('hides snackBar after close button was clicked', () => {
+    const snackBar = component.find('WithStyles(ForwardRef(Snackbar))');
+
+    act(() => {
+      snackBar.props().onClose();
+    });
+
+    expect(defaultProps.onHandleClose).toHaveBeenCalled();
+  });
+
+  it('applies error state for snackBar if isSuccess prop is true', () => {
+    const snackBar = component.find('WithStyles(ForwardRef(Alert))');
+
+    expect(snackBar.props().severity).toBe('success');
+  });
+
+  it('applies error state for snackBar if isSuccess prop is false', () => {
+    component = setUp({ isSuccess: false });
+    const snackBar = component.find('WithStyles(ForwardRef(Alert))');
+
+    expect(snackBar.props().severity).toBe('error');
   });
 
   describe('default props', () => {

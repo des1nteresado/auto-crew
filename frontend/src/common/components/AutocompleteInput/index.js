@@ -32,7 +32,7 @@ const AutocompleteInput = ({
       }}
       options={valuesList}
       getOptionLabel={getOptionLabel}
-      onChange={(value) => onAutocompleteChange(value)}
+      onChange={(event, value) => onAutocompleteChange(value)}
       renderInput={(params) => (
         <TextField
           {...params}

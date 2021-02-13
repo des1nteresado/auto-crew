@@ -24,6 +24,10 @@ describe('LoginModal', () => {
     component = setUp();
   });
 
+  afterEach(() => {
+    defaultProps.handleShowLoginModal.mockRestore();
+  });
+
   it('renders LoginModal component correctly', () => {
     expect(component).toMatchSnapshot();
   });
@@ -46,12 +50,8 @@ describe('LoginModal', () => {
     expect(defaultProps.handleShowLoginModal).toHaveBeenCalledWith(false);
   });
 
-  // @ TODO: check test
-
   it('calls onClick CloseButton callback correctly', () => {
-    const closeButton = component.find('Memo(WithStyles(CommonDialog))').first();
-
-    expect(closeButton.props().isOpen).toBe(defaultProps.isLoginModalShowed);
+    const closeButton = component.find('Memo(CommonButton)').first();
 
     closeButton.simulate('click');
 

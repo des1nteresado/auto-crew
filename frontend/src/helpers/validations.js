@@ -5,7 +5,7 @@ export const validateEmail = (email) => {
 };
 
 export const validatePassword = (password) => {
-  return password.length > 0;
+  return password?.trim().length > 0;
 };
 
 export const validateBaseInput = (value) => {

@@ -2,17 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, Menu, MenuItem, Box } from '@material-ui/core';
 
+import { useCommonContext } from 'common/contexts/CommonContext';
 import styles from './styles';
 
-const MainPopup = ({
-  classes,
-  handleShowLoginModal,
-  handleShowRegisterModal,
-  anchorEl,
-  handleCloseMenu,
-  isAuth,
-  showModalHandler,
-}) => {
+const MainPopup = ({ classes, anchorEl, handleCloseMenu, isAuth, showModalHandler }) => {
+  const { handleShowLoginModal, handleShowRegisterModal } = useCommonContext();
+
   return (
     <Menu
       anchorEl={anchorEl}

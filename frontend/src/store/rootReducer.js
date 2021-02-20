@@ -2,12 +2,8 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import register from '../modules/Auth/RegisterModal/reducers';
-import user from '../modules/Auth/LoginModal/reducers';
-import commonLayout from '../common/layouts/CommonLayout/reducers';
-
-import settings from '../modules/ProfilePage/components/Tabs/ProfileTab/reducers';
-import resetPassword from '../modules/Auth/ResetPasswordModal/reducers';
+import user from '../modules/Auth/reducers';
+import profileSettings from '../modules/ProfilePage/components/Tabs/ProfileTab/reducers';
 
 const persistConfig = {
   key: 'root',
@@ -21,11 +17,8 @@ const persistUserConfig = {
 };
 
 const rootReducer = combineReducers({
-  register,
   user: persistReducer(persistUserConfig, user),
-  resetPassword,
-  commonLayout,
-  settings,
+  profileSettings,
 });
 
 export default persistReducer(persistConfig, rootReducer);

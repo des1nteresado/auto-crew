@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import LoginModal from 'modules/Auth/LoginModal/components/LoginModal';
+import LoginModal from 'modules/Auth/components/LoginModal';
 
 const defaultProps = {
   formData: { email: 'testemail@mail.ru', password: 'password' },

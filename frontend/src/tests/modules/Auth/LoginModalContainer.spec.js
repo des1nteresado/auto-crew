@@ -1,11 +1,16 @@
-import React from 'react';
+import * as React from 'react'; // important moment for easily mocking setState
 import { mount } from 'enzyme';
 import * as redux from 'react-redux';
+import { act } from 'react-dom/test-utils';
 
 import * as CommonContext from 'common/contexts/CommonContext';
 import LoginModalContainer from 'modules/Auth/containers/LoginModalContainer';
+import { testSelector } from 'modules/Auth/selectors';
 
-jest.spyOn(redux, 'useSelector').mockReturnValue({ errors: '' });
+jest.spyOn(redux, 'useSelector').mockImplementation((selectorFn) => selectorFn());
+jest.mock('modules/Auth/selectors', () => ({
+  testSelector: jest.fn().mockReturnValue({ errors: 'test' }),
+}));
 
 const setUp = (props) => mount(<LoginModalContainer {...props} />);
 
@@ -13,8 +18,12 @@ describe('LoginModalContainer', () => {
   let component;
   let useContextSpy;
   let useDispatchSpy;
+  let useStateSpy;
+
+  const setState = jest.fn();
 
   beforeEach(() => {
+    useStateSpy = jest.spyOn(React, 'useState').mockImplementation((init) => [init, setState]);
     useDispatchSpy = jest.spyOn(redux, 'useDispatch').mockReturnValue(jest.fn());
     useContextSpy = jest.spyOn(CommonContext, 'useCommonContext').mockReturnValue({
       isLoginModalShowed: false,
@@ -26,8 +35,7 @@ describe('LoginModalContainer', () => {
   });
 
   afterEach(() => {
-    useContextSpy.mockRestore();
-    useDispatchSpy.mockRestore();
+    jest.clearAllMocks();
   });
 
   it('renders LoginModalContainer component correctly', () => {
@@ -69,15 +77,15 @@ describe('LoginModalContainer', () => {
     expect(dispatch).toHaveBeenCalled();
   });
 
-  // @ TODO: improve test
+  it('calls onChangeFields callback correctly', () => {
+    const loginModal = component.find('WithStyles(LoginModal)');
 
-  // it('calls onChangeFields callback correctly', () => {
-  //   const loginModal = component.find('WithStyles(LoginModal)');
+    act(() => {
+      loginModal.props().onChange({ target: { name: 'name', value: 'test' } });
+    });
 
-  //   loginModal.props().onChange({ target: { name: 'name', value: 'test' } });
-
-  //   expect(loginModal.props().onChange).toBeTruthy()
-  // });
+    expect(setState).toHaveBeenCalled();
+  });
 
   it('calls handleErrorClear callback correctly', () => {
     const snack = component.find('WithStyles(Snack)');

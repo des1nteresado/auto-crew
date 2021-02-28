@@ -7,6 +7,7 @@ import { validateEmail, validatePassword } from 'helpers/validations';
 import LoginModal from '../components/LoginModal';
 import { CLEAR_ERRORS, LOGIN } from '../actions';
 import { useCommonContext } from 'common/contexts/CommonContext';
+import { userSelector } from '../selectors';
 
 const initialState = { email: '', password: '' };
 
@@ -18,12 +19,12 @@ const LoginModalContainer = () => {
     handleShowRegisterModal,
   } = useCommonContext();
 
-  const [formData, setFormData] = useState(initialState);
+  const [formData, setFormData] = useState(userSelector);
   const [isLoginError, setIsLoginError] = useState(false);
 
   const dispatch = useDispatch();
 
-  const { errors } = useSelector((state) => state.user);
+  const { errors } = useSelector(testSelector);
 
   useEffect(() => setIsLoginError(false), []);
 

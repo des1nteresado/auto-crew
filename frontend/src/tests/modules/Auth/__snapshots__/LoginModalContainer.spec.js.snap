@@ -432,7 +432,7 @@ exports[`LoginModalContainer renders LoginModalContainer component correctly 1`]
     </LoginModal>
   </WithStyles(LoginModal)>
   <WithStyles(Snack)
-    message=""
+    message="test"
     onHandleClose={[Function]}
   >
     <Snack
@@ -443,9 +443,32 @@ exports[`LoginModalContainer renders LoginModalContainer component correctly 1`]
         }
       }
       isSuccess={false}
-      message=""
+      message="test"
       onHandleClose={[Function]}
-    />
+    >
+      <WithStyles(ForwardRef(Snackbar))
+        autoHideDuration={4000}
+        onClose={[Function]}
+        open={false}
+      >
+        <ForwardRef(Snackbar)
+          autoHideDuration={4000}
+          classes={
+            Object {
+              "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
+              "anchorOriginBottomLeft": "MuiSnackbar-anchorOriginBottomLeft",
+              "anchorOriginBottomRight": "MuiSnackbar-anchorOriginBottomRight",
+              "anchorOriginTopCenter": "MuiSnackbar-anchorOriginTopCenter",
+              "anchorOriginTopLeft": "MuiSnackbar-anchorOriginTopLeft",
+              "anchorOriginTopRight": "MuiSnackbar-anchorOriginTopRight",
+              "root": "MuiSnackbar-root",
+            }
+          }
+          onClose={[Function]}
+          open={false}
+        />
+      </WithStyles(ForwardRef(Snackbar))>
+    </Snack>
   </WithStyles(Snack)>
 </LoginModalContainer>
 `;

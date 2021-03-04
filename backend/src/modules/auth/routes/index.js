@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router } from 'express';
 
 // import signUp from "../controllers/signUp";
 // import signIn from "../controllers/signIn";

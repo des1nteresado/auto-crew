@@ -10,14 +10,14 @@ mongoose.connect(process.env.DB_CONNECTION_URL, {
 const db = mongoose.connection;
 
 db.on('error', (error) => {
-  console.log('Mongoose default connection error: ' + error);
+  console.log(`Mongoose default connection error: ${error}`);
 });
 
 db.on('disconnected', () => {
   console.log('Mongoose default connection disconnected');
 });
 
-process.on('SIGINT', function() {
+process.on('SIGINT', () => {
   db.close(() => {
     console.log('Mongoose default connection disconnected through app termination');
     process.exit(0);

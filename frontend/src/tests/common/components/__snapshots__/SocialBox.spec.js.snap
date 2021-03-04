@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SocialBox renders SocialBox component correctly 1`] = `
+<Styled(MuiBox)
+  className="SocialBox-socialBox-1 style"
+>
+  <WithStyles(ForwardRef(Link))
+    href="link1"
+    key="name1"
+  >
+    <Styled(MuiBox)
+      onClick={[Function]}
+    />
+  </WithStyles(ForwardRef(Link))>
+  <WithStyles(ForwardRef(Link))
+    href="link2"
+    key="name2"
+  >
+    <Styled(MuiBox)
+      onClick={[Function]}
+    />
+  </WithStyles(ForwardRef(Link))>
+</Styled(MuiBox)>
+`;

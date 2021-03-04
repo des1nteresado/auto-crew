@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommonSelect renders CommonSelect component correctly 1`] = `
+<Memo(WithStyles(CommonInput))
+  SelectProps={
+    Object {
+      "IconComponent": Object {
+        "$$typeof": Symbol(react.memo),
+        "compare": null,
+        "displayName": "ExpandMoreRoundedIcon",
+        "muiName": "SvgIcon",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "render": [Function],
+        },
+      },
+    }
+  }
+  onChange={[Function]}
+  select={true}
+  value="value"
+>
+  <WithStyles(ForwardRef(MenuItem))
+    key="test-id"
+    value="ITEM1"
+  >
+    ITEM1
+  </WithStyles(ForwardRef(MenuItem))>
+  <WithStyles(ForwardRef(MenuItem))
+    key="test-id"
+    value="ITEM2"
+  >
+    ITEM2
+  </WithStyles(ForwardRef(MenuItem))>
+</Memo(WithStyles(CommonInput))>
+`;

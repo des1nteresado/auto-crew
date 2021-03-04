@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   },
   "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
   "globals": {
@@ -29,20 +30,16 @@
         "allowTernary": true
       }
     ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/jsx-closing-bracket-location": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
+    "eslintimport/order" "off",
     "global-require": 0,
     "linebreak-style": 0,
     "prettier/prettier": "warn",
-    "react/jsx-props-no-spreading": [
-      "error",
-      {
-        "html": "ignore",
-        "exceptions": ["Button", "TextField", "Radio", "CommonInput", "Route", "Component"]
-      }
-    ],
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-one-expression-per-line": "off",
     "no-underscore-dangle": "off",
     "eqeqeq": "off"

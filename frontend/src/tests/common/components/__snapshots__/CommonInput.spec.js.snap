@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommonInput renders CommonInput component correctly 1`] = `
+<CommonInput
+  classes={
+    Object {
+      "root": "CommonInput-root-1",
+    }
+  }
+  error={true}
+  helperText="error text"
+  isTouchedByDefault={false}
+  label=""
+  multiline={false}
+  name="test-id"
+  onChange={[Function]}
+  style="styleClass"
+  type="text"
+  value=""
+/>
+`;

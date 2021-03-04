@@ -22,7 +22,7 @@ const AutocompleteInput = ({
 
   const onBlur = useCallback(() => {
     setIsTouched(true);
-  }, [setIsTouched]);
+  }, []);
 
   return (
     <Autocomplete
@@ -32,7 +32,7 @@ const AutocompleteInput = ({
       }}
       options={valuesList}
       getOptionLabel={getOptionLabel}
-      onChange={(event, value) => onAutocompleteChange(value)}
+      onChange={(value) => onAutocompleteChange(value)}
       renderInput={(params) => (
         <TextField
           {...params}
@@ -64,7 +64,7 @@ AutocompleteInput.defaultProps = {
   error: false,
   onAutocompleteChange: () => {},
   onInputChange: () => {},
-  getOptionLabel: () => {},
+  getOptionLabel: () => '',
 };
 
 AutocompleteInput.propTypes = {

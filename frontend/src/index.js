@@ -12,7 +12,7 @@ import './static/styles/reset.css';
 
 import theme from './theme';
 import { configureStore } from './store/configureStore';
-import MainLayout from './common/layouts/MainLayout/components/MainLayout';
+import Navigation from './modules/Navigation';
 
 const store = configureStore();
 const persistor = persistStore(store);
@@ -22,7 +22,7 @@ ReactDOM.render(
     <PersistGate loading={null} persistor={persistor}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <MainLayout />
+          <Navigation />
         </BrowserRouter>
       </ThemeProvider>
     </PersistGate>

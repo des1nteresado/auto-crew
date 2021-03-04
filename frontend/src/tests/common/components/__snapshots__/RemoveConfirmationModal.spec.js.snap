@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RemoveConfirmationModal renders RemoveConfirmationModal component correctly 1`] = `
+<Memo(WithStyles(CommonDialog))
+  isOpen={true}
+  onClose={[MockFunction]}
+>
+  <Styled(MuiBox)
+    className="RemoveConfirmationModal-cancelWrapper-3"
+  >
+    <Memo(CommonButton)
+      className="RemoveConfirmationModal-closeButton-1"
+      label=""
+      onClick={[MockFunction]}
+      size="large"
+      startIcon={<UNDEFINED />}
+      variant="text"
+    />
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+    className="RemoveConfirmationModal-modalTitle-2"
+    variant="h3"
+  >
+    Are you sure, that you want to delete this 
+    title
+    ?
+  </WithStyles(ForwardRef(Typography))>
+  <Styled(MuiBox)
+    className="RemoveConfirmationModal-buttonsWrapper-4"
+  >
+    <Memo(CommonButton)
+      className="RemoveConfirmationModal-controlButton-5"
+      label="Yes"
+      onClick={[MockFunction]}
+      variant="contained"
+    />
+    <Memo(CommonButton)
+      className="RemoveConfirmationModal-controlButton-5"
+      label="No"
+      onClick={[MockFunction]}
+      variant="outlined"
+    />
+  </Styled(MuiBox)>
+</Memo(WithStyles(CommonDialog))>
+`;

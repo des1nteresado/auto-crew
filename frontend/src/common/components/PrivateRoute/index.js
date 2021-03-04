@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
-import ROUTES from 'routes';
+import ROUTES from 'modules/Navigation/routes';
 import { USER_ROLES } from 'constants/userRoles';
 
 const PrivateRoute = ({ component: Component, roles, ...rest }) => {

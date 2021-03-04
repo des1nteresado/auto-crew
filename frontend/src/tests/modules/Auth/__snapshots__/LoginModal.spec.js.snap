@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginModal renders LoginModal component correctly 1`] = `
+<Memo(WithStyles(CommonDialog))
+  isOpen={true}
+  onClose={[Function]}
+  style="LoginModal-commomDialog-2"
+>
+  <form
+    onSubmit={[MockFunction]}
+  >
+    <Memo(CommonButton)
+      className="LoginModal-closeButton-1"
+      label=""
+      onClick={[Function]}
+      size="large"
+      startIcon={<UNDEFINED />}
+      variant="text"
+    />
+    <WithStyles(ForwardRef(Grid))
+      className="LoginModal-dialogWrapper-3"
+      container={true}
+      spacing={4}
+    >
+      <WithStyles(ForwardRef(Grid))
+        className="LoginModal-topActions-7"
+        container={true}
+        item={true}
+        spacing={4}
+        xs={12}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          xs={12}
+        >
+          <WithStyles(ForwardRef(Typography))
+            color="primary"
+            variant="h2"
+          >
+            Welcome back!
+          </WithStyles(ForwardRef(Typography))>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          xs={12}
+        >
+          <WithStyles(ForwardRef(Typography))
+            color="primary"
+            variant="h3"
+          >
+            Please sign in.
+          </WithStyles(ForwardRef(Typography))>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        xs={12}
+      >
+        <Memo(WithStyles(CommonInput))
+          autoFocus={true}
+          error={false}
+          helperText="Invalid email address."
+          label="Email"
+          name="email"
+          onChange={[MockFunction]}
+          value="testemail@mail.ru"
+        />
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        className="LoginModal-passwordBox-5"
+        item={true}
+        xs={12}
+      >
+        <Memo(WithStyles(CommonInput))
+          error={false}
+          helperText="This is a required field."
+          label="Password"
+          name="password"
+          onChange={[MockFunction]}
+          type="password"
+          value="password"
+        />
+        <Memo(CommonButton)
+          className="LoginModal-resetPassword-4"
+          label=" Forgot your password?"
+          onClick={[MockFunction]}
+          variant="text"
+        />
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        xs={12}
+      >
+        <Memo(CommonButton)
+          disabled={false}
+          label="Sign in"
+          type="submit"
+          variant="contained"
+        />
+        <Memo(CommonButton)
+          className="LoginModal-signUpButton-6"
+          label="Create an account"
+          onClick={[MockFunction]}
+          variant="text"
+        />
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </form>
+</Memo(WithStyles(CommonDialog))>
+`;

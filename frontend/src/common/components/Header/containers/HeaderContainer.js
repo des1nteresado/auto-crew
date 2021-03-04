@@ -1,15 +1,15 @@
 import React, { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import Header from '../components/Header';
 
-const HeaderContainer = ({ handleShowLoginModal, handleShowRegisterModal }) => {
+const HeaderContainer = () => {
+
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const { isAuth } = useSelector((state) => state.user);
-  const { firstName } = useSelector((state) => state.settings);
+  const { firstName } = useSelector((state) => state.profileSettings);
 
   const handleClickProfileButton = useCallback((event) => {
     setAnchorEl(event.currentTarget);
@@ -46,8 +46,6 @@ const HeaderContainer = ({ handleShowLoginModal, handleShowRegisterModal }) => {
 
   return (
     <Header
-      handleShowLoginModal={handleShowLoginModal}
-      handleShowRegisterModal={handleShowRegisterModal}
       handleClickProfileButton={handleClickProfileButton}
       handleOpenMainMenu={handleOpenMainMenu}
       isAuth={isAuth}
@@ -61,9 +59,4 @@ const HeaderContainer = ({ handleShowLoginModal, handleShowRegisterModal }) => {
   );
 };
 
-HeaderContainer.propTypes = {
-  handleShowLoginModal: PropTypes.func.isRequired,
-  handleShowRegisterModal: PropTypes.func.isRequired,
-};
-
-export default React.memo(HeaderContainer);
+export default HeaderContainer;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Breadcrumbs as MaterialBreadcrumbs, Link, withStyles } from '@material-ui/core';
 
-import ROUTES from 'routes';
+import ROUTES from 'modules/Navigation/routes';
 
 import styles from './styles.js';
 

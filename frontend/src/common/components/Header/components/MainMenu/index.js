@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import CommonButton from 'common/components/CommonButton';
 import { wpLinksConfig } from 'constants/links';
 import { useRouteToGo } from 'helpers/hooks/useRouteToGo';
-import ROUTES from 'routes';
+import ROUTES from 'modules/Navigation/routes';
 
 import styles from './styles';
 

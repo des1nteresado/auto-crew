@@ -7,7 +7,7 @@ import { CLEAR_SETTING_STATUS_MESSAGE, GET_USER_INFO, UPDATE_USER_PROFILE } from
 const UserSettingsTabContainer = () => {
   const { _id } = useSelector((state) => state.user);
   const { firstName, lastName, phone, email, errors, successMessage } = useSelector(
-    (reducerState) => reducerState.settings
+    (state) => state.profileSettings
   );
 
   const dispatch = useDispatch();

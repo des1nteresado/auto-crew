@@ -4,7 +4,7 @@ import { Box, Container, Typography, withStyles, useTheme, useMediaQuery } from 
 
 import Logo from 'static/images/logo.png';
 
-import ROUTES from 'routes';
+import ROUTES from 'modules/Navigation/routes';
 import { useRouteToGo } from 'helpers/hooks/useRouteToGo';
 import MainMenu from '../MainMenu';
 import MainPopup from '../MainPopup';
@@ -13,8 +13,6 @@ import styles from './styles';
 
 const Header = ({
   classes,
-  handleShowLoginModal,
-  handleShowRegisterModal,
   handleClickProfileButton,
   handleOpenMainMenu,
   isAuth,
@@ -26,7 +24,6 @@ const Header = ({
   handleOpenPage,
 }) => {
   const theme = useTheme();
-
   const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
 
   const goToHome = useRouteToGo(ROUTES.HOME);
@@ -55,8 +52,6 @@ const Header = ({
           isAuth={isAuth}
           showModalHandler={showModalHandler}
           handleClickProfileButton={goToUserProfile}
-          handleShowLoginModal={handleShowLoginModal}
-          handleShowRegisterModal={handleShowRegisterModal}
         />
         <MainMenu
           isFilterMenuOpen={isFilterMenuOpen}
@@ -74,8 +69,6 @@ Header.defaultProps = {
 
 Header.propTypes = {
   classes: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  handleShowLoginModal: PropTypes.func.isRequired,
-  handleShowRegisterModal: PropTypes.func.isRequired,
   handleClickProfileButton: PropTypes.func.isRequired,
   handleOpenMainMenu: PropTypes.func.isRequired,
   isAuth: PropTypes.bool.isRequired,

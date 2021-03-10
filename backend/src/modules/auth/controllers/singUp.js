@@ -1,26 +1,22 @@
 import User from '../../../../db/models/user';
 import { userProvider } from '../../../../db/providers';
 
-// import jwt from 'jsonwebtoken';
 // import sendEmail from '../../backgroundTasks/notifications/email';
 import { validateEmail } from '../../../helpers';
-
-// import config from '../../../config';
-// import USER_ROLES from '../../../constants/userRoles';
+import { errorHandler, generateAccessTokens } from '../../../utils';
 
 export default async (req, res) => {
   try {
     const { email, password } = req.body;
-    // const { TOKEN_SECRET, TOKEN_OPTIONS, REFRESH_TOKEN_SECRET, REFRESH_TOKEN_OPTIONS } = config;
 
     if (!validateEmail(email)) {
-      return res.status(400).json({ errors: 'Invalid email address.' });
+      return res.status(400).json({ message: 'Invalid email address.' });
     }
 
     const existedUser = await userProvider.getByEmail(email);
 
     if (existedUser) {
-      return res.status(400).json({ errors: 'User is already registered.' });
+      return res.status(400).json({ message: 'User is already registered.' });
     }
 
     const user = await User.create({
@@ -28,6 +24,7 @@ export default async (req, res) => {
       password,
     });
 
+    // TODO: add verification email logic
     // try {
     //   await sendEmail({
     //     type: 'signup',
@@ -38,20 +35,14 @@ export default async (req, res) => {
     //   console.log(error);
     // }
 
-    // const token = jwt.sign({ userId: user._id, userRole: user.role }, TOKEN_SECRET, TOKEN_OPTIONS);
-
-    // const refreshToken = jwt.sign(
-    //   { userId: user._id },
-    //   REFRESH_TOKEN_SECRET,
-    //   REFRESH_TOKEN_OPTIONS
-    // );
+    const { token, refreshToken } = generateAccessTokens(user._id);
 
     return res.status(201).json({
       user,
-      // token,
-      // refreshToken
+      token,
+      refreshToken,
     });
   } catch (error) {
-    return res.status(400).json({ error });
+    return errorHandler(res, error);
   }
 };

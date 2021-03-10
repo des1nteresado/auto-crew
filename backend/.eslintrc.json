@@ -26,6 +26,8 @@
     "eqeqeq": "off",
     "import-order": "off",
     "func-names": "off",
-    "no-control-regex": "off"
+    "no-control-regex": "off",
+    "consistent-return": "off",
+    "dot-notation": "off"
   }
 }

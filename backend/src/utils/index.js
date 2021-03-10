@@ -1,4 +1,10 @@
 import jwt from 'jsonwebtoken';
+import * as _ from 'lodash';
+import bcrypt from 'bcryptjs';
+
+export const hashPassword = (password) => {
+  return bcrypt.hash(password, 10);
+};
 
 export const errorHandler = (res, error) => {
   console.log(error);
@@ -20,3 +26,5 @@ export const generateAccessTokens = (userId) => {
     refreshToken,
   };
 };
+
+export const omitUndefined = (object) => _.omitBy(object, _.isNil);

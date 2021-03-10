@@ -1,55 +1,40 @@
-// import jwt from "jsonwebtoken";
-// // import sendEmail from '../../backgroundTasks/notifications/email';
-// // import { validateEmail } from '../../../utils';
+// import jwt from 'jsonwebtoken';
+import User from '../../../../db/models/user';
 
-// // import { userProvider } from '../../../database/repositories/providers';
-// import config from "../../../config";
-// import USER_ROLES from "../../../constants/userRoles";
+// import config from '../../../config';
 
-// export default async (req, res) => {
-//   try {
-//     const { email, password, role } = req.body;
-//     const { TOKEN_SECRET, TOKEN_OPTIONS, REFRESH_TOKEN_SECRET, REFRESH_TOKEN_OPTIONS } = config;
+export default async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    // const { TOKEN_SECRET, TOKEN_OPTIONS, REFRESH_TOKEN_SECRET, REFRESH_TOKEN_OPTIONS } = config;
 
-//     if (!validateEmail(email)) {
-//       return res.status(400).json({ errors: "Invalid email address." });
-//     }
+    const user = await User.findOne({ email: email.toLowerCase() });
 
-//     const existUser = await userProvider.getByEmail(email);
+    if (!user) {
+      return res.status(404).json({ errors: 'User does not exist.' });
+    }
 
-//     if (existUser !== null) {
-//       return res.status(400).json({ errors: "User is already registered." });
-//     }
+    const isPasswordValid = await user.checkPassword(password);
 
-//     const payload = {
-//       email,
-//       password,
-//       role: role || USER_ROLES.CUSTOMER,
-//       verification: {},
-//     };
+    if (!isPasswordValid) {
+      return res.status(401).json({ errors: 'Username or password is invalid.' });
+    }
 
-//     const user = await userProvider.signUp(payload);
+    // const token = jwt.sign({ userId: user._id, email: user.email }, TOKEN_SECRET, TOKEN_OPTIONS);
 
-//     try {
-//       await sendEmail({
-//         type: "signup",
-//         to: email,
-//         variables: {},
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
+    // const refreshToken = jwt.sign(
+    //   { userId: user._id },
+    //   REFRESH_TOKEN_SECRET,
+    //   REFRESH_TOKEN_OPTIONS
+    // );
 
-//     const token = jwt.sign({ userId: user._id, userRole: user.role }, TOKEN_SECRET, TOKEN_OPTIONS);
-
-//     const refreshToken = jwt.sign(
-//       { userId: user._id },
-//       REFRESH_TOKEN_SECRET,
-//       REFRESH_TOKEN_OPTIONS
-//     );
-
-//     return res.status(200).json({ user, token, refreshToken });
-//   } catch (error) {
-//     res.status(400).json({ errors: error });
-//   }
-// };
+    return res.status(200).json({
+      user,
+      // token,
+      // refreshToken,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ error });
+  }
+};

@@ -1,14 +1,15 @@
 version: "3.8"
+
 services:
     client:
-        image: acrew-client:prod
+        image: crew-client:prod
         build:
             context: ./frontend
             dockerfile: Dockerfile.prod
         ports:
             - "1387:80"
     server:
-        image: acrew-server:prod
+        image: crew-server:prod
         build:
             context: ./backend
             dockerfile: Dockerfile.prod

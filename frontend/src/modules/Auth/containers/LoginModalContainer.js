@@ -19,12 +19,12 @@ const LoginModalContainer = () => {
     handleShowRegisterModal,
   } = useCommonContext();
 
-  const [formData, setFormData] = useState(userSelector);
+  const [formData, setFormData] = useState(initialState);
   const [isLoginError, setIsLoginError] = useState(false);
 
   const dispatch = useDispatch();
 
-  const { errors } = useSelector(testSelector);
+  const { errors } = useSelector(userSelector);
 
   useEffect(() => setIsLoginError(false), []);
 

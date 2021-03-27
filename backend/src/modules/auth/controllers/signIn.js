@@ -1,7 +1,7 @@
-import User from '../../../../db/models/user';
-import { errorHandler, generateAccessTokens } from '../../../utils';
+const User = require('../../../../db/models/user');
+const { errorHandler, generateAccessTokens } = require('../../../utils');
 
-export default async (req, res) => {
+module.exports = async (req, res) => {
   try {
     const { email, password } = req.body;
 

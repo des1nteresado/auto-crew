@@ -1,1 +1,1 @@
-export { default } from './connect';
+module.exports = require('./connect');

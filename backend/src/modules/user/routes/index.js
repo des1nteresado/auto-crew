@@ -1,13 +1,13 @@
-import { Router } from 'express';
+const { Router } = require('express');
 
-import getUser from '../controllers/getUser';
-import updateUser from '../controllers/updateUser';
+const getUser = require('../controllers/getUser');
+const updateUser = require('../controllers/updateUser');
 
-import verifyToken from '../../../middlewares/verifyToken';
+const verifyToken = require('../../../middlewares/verifyToken');
 
 const router = Router();
 
 router.get('/:userId', verifyToken, getUser);
 router.patch('/:userId', verifyToken, updateUser);
 
-export default router;
+module.exports = router;

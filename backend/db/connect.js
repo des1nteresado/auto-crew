@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 mongoose.connect(process.env.DB_CONNECTION_URL, {
   useNewUrlParser: true,
@@ -24,4 +24,4 @@ process.on('SIGINT', () => {
   });
 });
 
-export default db;
+module.exports = db;

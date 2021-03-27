@@ -1,7 +1,7 @@
-import { userProvider } from '../../../../db/providers';
-import { errorHandler } from '../../../utils';
+const { userProvider } = require('../../../../db/providers');
+const { errorHandler } = require('../../../utils');
 
-export default async (req, res) => {
+module.exports = async (req, res) => {
   try {
     const { userId } = req.params;
 

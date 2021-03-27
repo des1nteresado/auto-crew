@@ -1,3 +1,3 @@
-import * as userProvider from './userProvider';
+const userProvider = require('./userProvider');
 
-export { userProvider };
+module.exports = { userProvider };

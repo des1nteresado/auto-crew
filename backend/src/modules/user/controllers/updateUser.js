@@ -1,8 +1,8 @@
-import User from '../../../../db/models/user';
-import { userProvider } from '../../../../db/providers';
-import { errorHandler, omitUndefined, hashPassword } from '../../../utils';
+const User = require('../../../../db/models/user');
+const { userProvider } = require('../../../../db/providers');
+const { errorHandler, omitUndefined, hashPassword } = require('../../../utils');
 
-export default async (req, res) => {
+module.exports = async (req, res) => {
   try {
     const { userId } = req.params;
     const { email, newEmail, currentPassword, newPassword, firstName, lastName } = req.body;

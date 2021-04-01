@@ -21,9 +21,12 @@ describe('signUp endpoint', () => {
       .post('/api/auth/sign-up')
       .send(data)
       .expect(201)
-      .then(async ({ body: { user } }) => {
+      .then(async ({ body: { user, token, refreshToken } }) => {
         expect(user._id).toBeTruthy();
         expect(data.email).toBe(user.email);
+
+        expect(token).toBeTruthy();
+        expect(refreshToken).toBeTruthy();
 
         const createdUser = await User.findOne({ _id: user._id });
         expect(user.email).toBe(createdUser.email);

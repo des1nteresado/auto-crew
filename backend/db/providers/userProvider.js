@@ -19,6 +19,9 @@ const deleteById = async (id) => userModel.findByIdAndDelete(id);
 
 const updateById = (id, fields) => userModel.findByIdAndUpdate(id, fields, { new: true });
 
+const getUsersCount = () => {
+  return userModel.countDocuments({});
+};
 module.exports = {
   getUser,
   getById,
@@ -27,4 +30,5 @@ module.exports = {
   getByRole,
   deleteById,
   updateById,
+  getUsersCount,
 };

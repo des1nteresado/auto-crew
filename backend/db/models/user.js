@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
+const { USER_ROLES } = require('../../src/constants');
+
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  role: { type: String, default: USER_ROLES.USER },
   firstName: { type: String },
   lastName: { type: String },
 });

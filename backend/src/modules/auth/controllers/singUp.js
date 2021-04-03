@@ -35,7 +35,7 @@ module.exports = async (req, res) => {
     //   console.log(error);
     // }
 
-    const { token, refreshToken } = generateAccessTokens(user._id);
+    const { token, refreshToken } = generateAccessTokens(user._id, user.role);
 
     return res.status(201).json({
       user,

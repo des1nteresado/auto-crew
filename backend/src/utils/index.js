@@ -12,8 +12,8 @@ const errorHandler = (res, error) => {
   return res.status(500).json({ message: error.message || error });
 };
 
-const generateAccessTokens = (userId) => {
-  const token = jwt.sign({ userId }, process.env.TOKEN_SECRET, {
+const generateAccessTokens = (userId, userRole) => {
+  const token = jwt.sign({ userId, userRole }, process.env.TOKEN_SECRET, {
     expiresIn: '8760h',
   });
 

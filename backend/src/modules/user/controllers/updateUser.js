@@ -6,11 +6,6 @@ module.exports = async (req, res) => {
   try {
     const { userId } = req.params;
     const { email, newEmail, currentPassword, newPassword, firstName, lastName } = req.body;
-    const { userId: decodedUserId } = req.user;
-
-    if (decodedUserId !== userId) {
-      return res.status(403).json({ message: 'Forbidden' });
-    }
 
     const currentUser = await User.findOne({ email: email.toLowerCase() });
 

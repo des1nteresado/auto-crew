@@ -13,7 +13,7 @@ afterAll(async (done) => {
   done();
 });
 
-describe('signUp endpoint', () => {
+describe('POST /api/auth/sign-up', () => {
   it('creates a new user', async (done) => {
     const data = { email: 'test@email.com', password: 'test' };
 

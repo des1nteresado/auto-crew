@@ -13,9 +13,9 @@ const { USER, ADMIN } = USER_ROLES;
 
 const router = Router();
 
-router.get('/', verifyToken, privateRoute(ADMIN), getAllUsers);
-router.get('/:userId', verifyToken, privateRoute(USER, ADMIN), getUser);
-router.put('/:userId', verifyToken, privateRoute(USER, ADMIN), updateUser);
-router.delete('/:userId', verifyToken, privateRoute(USER, ADMIN), deleteUser);
+router.get('/', verifyToken, privateRoute([ADMIN]), getAllUsers);
+router.get('/:userId', verifyToken, privateRoute([USER, ADMIN]), getUser);
+router.put('/:userId', verifyToken, privateRoute([USER, ADMIN]), updateUser);
+router.delete('/:userId', verifyToken, privateRoute([USER, ADMIN]), deleteUser);
 
 module.exports = router;

@@ -4,8 +4,9 @@ const app = require('../../../server.js');
 const db = require('../../../db');
 const User = require('../../../db/models/user');
 
-afterEach(async () => {
+afterEach(async (done) => {
   await db.clearDatabase();
+  done();
 });
 
 afterAll(async (done) => {

@@ -6,8 +6,9 @@ const User = require('../../../db/models/user');
 const { generateAccessTokens } = require('../../../src/utils/index.js');
 const { USER_ROLES } = require('../../../src/constants/index.js');
 
-afterEach(async () => {
+afterEach(async (done) => {
   await db.clearDatabase();
+  done();
 });
 
 afterAll(async (done) => {

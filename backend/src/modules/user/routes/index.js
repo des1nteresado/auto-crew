@@ -8,12 +8,13 @@ const privateRoute = require('../../../middlewares/privateRoute');
 const { USER_ROLES } = require('../../../constants');
 const deleteUser = require('../controllers/deleteUser');
 const getAllUsers = require('../controllers/getAllUsers');
+const paginationMiddleware = require('../../../middlewares/paginationMiddleware');
 
 const { USER, ADMIN } = USER_ROLES;
 
 const router = Router();
 
-router.get('/', verifyToken, privateRoute([ADMIN]), getAllUsers);
+router.get('/', verifyToken, privateRoute([ADMIN]), paginationMiddleware, getAllUsers);
 router.get('/:userId', verifyToken, privateRoute([USER, ADMIN]), getUser);
 router.put('/:userId', verifyToken, privateRoute([USER, ADMIN]), updateUser);
 router.delete('/:userId', verifyToken, privateRoute([USER, ADMIN]), deleteUser);

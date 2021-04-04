@@ -14,7 +14,7 @@ const privateRoute = (roles = []) => {
       }
       next();
     } else {
-      return res.status(403).json({ errors: 'Forbidden' });
+      return res.status(403).json({ message: 'Forbidden' });
     }
   };
 };

@@ -1,4 +1,4 @@
-const DEFAULT_PAGINATION_VALUES = require('../constants/paginationConfig');
+const { DEFAULT_PAGINATION_VALUES } = require('../constants');
 
 const paginationMiddleware = (req, res, next) => {
   const { DEFAULT_PAGE_SIZE, DEFAULT_START_PAGE } = DEFAULT_PAGINATION_VALUES;

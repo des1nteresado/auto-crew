@@ -3,6 +3,7 @@ const request = require('supertest');
 const app = require('../../../server.js');
 const db = require('../../../db');
 const User = require('../../../db/models/user');
+const { userProvider } = require('../../../db/providers');
 const { generateAccessTokens } = require('../../../src/utils/index.js');
 const { USER_ROLES } = require('../../../src/constants/index.js');
 
@@ -15,27 +16,26 @@ afterAll(async (done) => {
   done();
 });
 
-describe('GET /api/user/:userId', () => {
-  it('get user data correctly (user)', async (done) => {
+describe('DELETE /api/user/:userId', () => {
+  it('delete user correctly (user)', async (done) => {
     const data = { email: 'test@email.com', password: 'test' };
 
     const createdUser = await User.create(data);
     const { token } = generateAccessTokens(createdUser._id, createdUser.role);
 
     request(app)
-      .get(`/api/user/${createdUser._id}`)
+      .delete(`/api/user/${createdUser._id}`)
       .set('authorization', `Bearer ${token}`)
       .expect(200)
-      .then(({ body: { role, email, password } }) => {
-        expect(role).toBe(createdUser.role);
-        expect(email).toBe(createdUser.email);
-        expect(password).toBe(createdUser.password);
+      .then(async ({ body: { _id } }) => {
+        const user = await userProvider.getById(_id);
 
+        expect(user).toBeNull();
         done();
       });
   });
 
-  it('get data of any user correctly (admin)', async (done) => {
+  it('delete user correctly (admin)', async (done) => {
     const user = { email: 'test@email.com', password: 'test' };
     const admin = { email: 'admin@email.com', password: 'test', role: USER_ROLES.ADMIN };
 
@@ -45,26 +45,25 @@ describe('GET /api/user/:userId', () => {
     const { token } = generateAccessTokens(createdAdmin._id, createdAdmin.role);
 
     request(app)
-      .get(`/api/user/${createdUser._id}`)
+      .delete(`/api/user/${createdUser._id}`)
       .set('authorization', `Bearer ${token}`)
       .expect(200)
-      .then(({ body: { role, email, password } }) => {
-        expect(role).toBe(createdUser.role);
-        expect(email).toBe(createdUser.email);
-        expect(password).toBe(createdUser.password);
+      .then(async ({ body: { _id } }) => {
+        const deletedUser = await userProvider.getById(_id);
 
+        expect(deletedUser).toBeNull();
         done();
       });
   });
 
-  it('returns 400 when admin tries get user data with invalid userId', async (done) => {
+  it('returns 400 when admin tries delete user with invalid userId', async (done) => {
     const admin = { email: 'admin@email.com', password: 'test', role: USER_ROLES.ADMIN };
 
     const createdAdmin = await User.create(admin);
     const { token } = generateAccessTokens(createdAdmin._id, createdAdmin.role);
 
     request(app)
-      .get(`/api/user/12345`)
+      .delete(`/api/user/12345`)
       .set('authorization', `Bearer ${token}`)
       .expect(400)
       .then(({ body: { message } }) => {
@@ -73,14 +72,14 @@ describe('GET /api/user/:userId', () => {
       });
   });
 
-  it('returns 404 when admin tries get data of undefined user', async (done) => {
+  it('returns 404 when admin tries delete undefined user', async (done) => {
     const admin = { email: 'admin@email.com', password: 'test', role: USER_ROLES.ADMIN };
 
     const createdAdmin = await User.create(admin);
     const { token } = generateAccessTokens(createdAdmin._id, createdAdmin.role);
 
     request(app)
-      .get(`/api/user/60699cdeb534fea96dacc4c0`)
+      .delete(`/api/user/60699cdeb534fea96dacc4c0`)
       .set('authorization', `Bearer ${token}`)
       .expect(404)
       .then(({ body: { message } }) => {
@@ -94,7 +93,7 @@ describe('GET /api/user/:userId', () => {
     const createdUser = await User.create(data);
 
     request(app)
-      .get(`/api/user/${createdUser._id}`)
+      .delete(`/api/user/${createdUser._id}`)
       .expect(401)
       .then(({ body: { message } }) => {
         expect(message).toBe('Unauthorized');
@@ -102,14 +101,14 @@ describe('GET /api/user/:userId', () => {
       });
   });
 
-  it('returns 403 when regular user tries get data of another user', async (done) => {
+  it('returns 403 when user tries delete another user', async (done) => {
     const data = { email: 'test@email.com', password: 'test' };
 
     const createdUser = await User.create(data);
     const { token } = generateAccessTokens(createdUser._id, createdUser.role);
 
     request(app)
-      .get(`/api/user/60699cdeb534fea96dacc4c0`)
+      .delete(`/api/user/60699cdeb534fea96dacc4c0`)
       .set('authorization', `Bearer ${token}`)
       .expect(403)
       .then(({ body: { message } }) => {

@@ -1,11 +1,11 @@
-import User from '../../../../db/models/user';
-import { userProvider } from '../../../../db/providers';
+const User = require('../../../../db/models/user');
+const { userProvider } = require('../../../../db/providers');
 
-// import sendEmail from '../../backgroundTasks/notifications/email';
-import { validateEmail } from '../../../helpers';
-import { errorHandler, generateAccessTokens } from '../../../utils';
+// const sendEmail = require('../../backgroundTasks/notifications/email');
+const { validateEmail } = require('../../../helpers');
+const { errorHandler, generateAccessTokens } = require('../../../utils');
 
-export default async (req, res) => {
+module.exports = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -35,7 +35,7 @@ export default async (req, res) => {
     //   console.log(error);
     // }
 
-    const { token, refreshToken } = generateAccessTokens(user._id);
+    const { token, refreshToken } = generateAccessTokens(user._id, user.role);
 
     return res.status(201).json({
       user,

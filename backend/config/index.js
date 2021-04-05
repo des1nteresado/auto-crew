@@ -1,13 +1,14 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
-import development from './development';
-import production from './production';
+const development = require('./development');
+const production = require('./production');
 
 dotenv.config();
 
 const config = {
   development,
   production,
+  test: development,
 };
 
-export default config[process.env.NODE_ENV || 'development'];
+module.exports = config[process.env.NODE_ENV || 'development'];

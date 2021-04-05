@@ -28,6 +28,7 @@
     "func-names": "off",
     "no-control-regex": "off",
     "consistent-return": "off",
-    "dot-notation": "off"
+    "dot-notation": "off",
+    "no-return-await": "off"
   }
 }

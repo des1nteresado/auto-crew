@@ -1,19 +1,19 @@
-import jwt from 'jsonwebtoken';
-import * as _ from 'lodash';
-import bcrypt from 'bcryptjs';
+const jwt = require('jsonwebtoken');
+const _ = require('lodash');
+const bcrypt = require('bcryptjs');
 
-export const hashPassword = (password) => {
+const hashPassword = (password) => {
   return bcrypt.hash(password, 10);
 };
 
-export const errorHandler = (res, error) => {
+const errorHandler = (res, error) => {
   console.log(error);
 
   return res.status(500).json({ message: error.message || error });
 };
 
-export const generateAccessTokens = (userId) => {
-  const token = jwt.sign({ userId }, process.env.TOKEN_SECRET, {
+const generateAccessTokens = (userId, userRole) => {
+  const token = jwt.sign({ userId, userRole }, process.env.TOKEN_SECRET, {
     expiresIn: '8760h',
   });
 
@@ -27,4 +27,11 @@ export const generateAccessTokens = (userId) => {
   };
 };
 
-export const omitUndefined = (object) => _.omitBy(object, _.isNil);
+const omitUndefined = (object) => _.omitBy(object, _.isNil);
+
+module.exports = {
+  hashPassword,
+  errorHandler,
+  generateAccessTokens,
+  omitUndefined,
+};

@@ -5,4 +5,4 @@ const DEVELOPMENT_CONFIG = {
   host: `http://localhost:${process.env.PORT || 8080}`,
 };
 
-export default DEVELOPMENT_CONFIG;
+module.exports = DEVELOPMENT_CONFIG;

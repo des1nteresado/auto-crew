@@ -1,7 +1,7 @@
-import User from '../../../../db/models/user';
-import { errorHandler, generateAccessTokens } from '../../../utils';
+const User = require('../../../../db/models/user');
+const { errorHandler, generateAccessTokens } = require('../../../utils');
 
-export default async (req, res) => {
+module.exports = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -17,7 +17,7 @@ export default async (req, res) => {
       return res.status(401).json({ message: 'Username or password is invalid.' });
     }
 
-    const { token, refreshToken } = generateAccessTokens(user._id);
+    const { token, refreshToken } = generateAccessTokens(user._id, user.role);
 
     return res.status(200).json({
       user,

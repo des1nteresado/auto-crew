@@ -1,13 +1,22 @@
-import { Router } from 'express';
+const { Router } = require('express');
 
-import getUser from '../controllers/getUser';
-import updateUser from '../controllers/updateUser';
+const getUser = require('../controllers/getUser');
+const updateUser = require('../controllers/updateUser');
 
-import verifyToken from '../../../middlewares/verifyToken';
+const verifyToken = require('../../../middlewares/verifyToken');
+const privateRoute = require('../../../middlewares/privateRoute');
+const { USER_ROLES } = require('../../../constants');
+const deleteUser = require('../controllers/deleteUser');
+const getAllUsers = require('../controllers/getAllUsers');
+const paginationMiddleware = require('../../../middlewares/paginationMiddleware');
+
+const { USER, ADMIN } = USER_ROLES;
 
 const router = Router();
 
-router.get('/:userId', verifyToken, getUser);
-router.patch('/:userId', verifyToken, updateUser);
+router.get('/', verifyToken, privateRoute([ADMIN]), paginationMiddleware, getAllUsers);
+router.get('/:userId', verifyToken, privateRoute([USER, ADMIN]), getUser);
+router.put('/:userId', verifyToken, privateRoute([USER, ADMIN]), updateUser);
+router.delete('/:userId', verifyToken, privateRoute([USER, ADMIN]), deleteUser);
 
-export default router;
+module.exports = router;

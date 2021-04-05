@@ -1,8 +1,8 @@
-import { Router } from 'express';
+const { Router } = require('express');
 
-import signUp from '../controllers/singUp';
-import signIn from '../controllers/signIn';
-// import resetPassword from '../controllers/resetPassword';
+const signUp = require('../controllers/singUp');
+const signIn = require('../controllers/signIn');
+// const resetPassword = require('../controllers/resetPassword');
 
 const router = Router();
 
@@ -10,4 +10,4 @@ router.post('/sign-up', signUp);
 router.post('/sign-in', signIn);
 // router.post('/reset-password', resetPassword);
 
-export default router;
+module.exports = router;

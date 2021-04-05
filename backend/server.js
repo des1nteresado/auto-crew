@@ -1,11 +1,12 @@
-import express from 'express';
+const express = require('express');
 
-import router from './router';
-import config from './config';
-
-import './db';
+const router = require('./router/index.js');
+const config = require('./config');
+const { connectDatabase } = require('./db');
 
 const app = express();
+
+connectDatabase();
 
 app.use(express.json());
 
@@ -15,7 +16,4 @@ router.get('/ping', (req, res) => {
 
 app.use(config.API_PREFIX, router);
 
-app.listen(config.PORT, () => {
-  console.log(process.env.NODE_ENV, 'env');
-  console.log(`> Ready on http://localhost:${config.PORT}`);
-});
+module.exports = app;

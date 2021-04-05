@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
@@ -13,9 +13,9 @@ const verifyToken = (req, res, next) => {
       return res.status(403).json({ message: 'Forbidden' });
     }
 
-    req.user = user;
+    req.decodedUser = user;
     next();
   });
 };
 
-export default verifyToken;
+module.exports = verifyToken;

@@ -1,6 +1,6 @@
  import axios from 'axios';
 
-const DOMAIN = 'http://localhost:3001/api/v1';
+const DOMAIN = 'http://localhost:3001/api';
 
 const config = {
   baseURL: DOMAIN,

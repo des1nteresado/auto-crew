@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { validateEmail } from 'helpers/validations';
 import ResetPasswordModal from '../components/ResetPasswordModal';
-import { CLEAR_RESET_PASSWORD_RESPONSE_MESSAGES, RESET_PASSWORD } from '../actions';
+import { CLEAR_ERRORS, RESET_PASSWORD } from '../actions';
 import { useCommonContext } from 'common/contexts/CommonContext';
 
 const ResetPasswordModalContainer = () => {
@@ -50,7 +50,7 @@ const ResetPasswordModalContainer = () => {
       handleShowLoginModal(false);
     }
 
-    dispatch(CLEAR_RESET_PASSWORD_RESPONSE_MESSAGES());
+    dispatch(CLEAR_ERRORS());
   }, [dispatch, isSuccess, handleShowLoginModal]);
 
   return (

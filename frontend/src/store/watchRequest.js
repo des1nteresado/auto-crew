@@ -26,13 +26,11 @@ function* sendRequest(action) {
     throw new Error(`Api method for action ${action.type} doesn't exist!`);
   }
 
-  // yield put(setIsPending(type));
-
   try {
     const response = yield call(callMethod, payload);
     yield put(createAction(action, response, SUCCESS_POSTFIX));
   } catch (error) {
-    yield put(createAction(action, error, FAIL_POSTFIX));
+    yield put(createAction(action, error.response, FAIL_POSTFIX));
   }
 }
 

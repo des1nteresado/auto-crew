@@ -1,93 +1,53 @@
-import { handleActions } from 'redux-actions';
-
-import { UPDATE_USER_PROFILE_SUCCESS } from 'modules/ProfilePage/components/Tabs/ProfileTab/actions';
+import { combineActions, handleActions } from 'redux-actions';
 import * as actions from '../actions/index';
 
 const defaultState = {
-  _id: null,
-  orders: [],
-  follows: [],
-  email: null,
-  firstName: '',
-  lastName: '',
-  role: '',
+  info: {
+    _id: '',
+    email: '',
+    token: '',
+    firstName: '',
+    lastName: '',
+    role: '',
+  },
   isLoading: false,
-  token: '',
   isAuth: false,
-  errors: '',
   isSuccess: false,
   message: '',
 };
 
 const userReducer = handleActions(
   {
-    [actions.LOGIN]: (state) => ({
-      ...state,
-      isLoading: true,
-    }),
-    [actions.LOGIN_SUCCESS]: (state, { payload }) => {
-      if (payload && payload.response && payload.response.user) {
-        const { token, user } = payload.response;
-        const { _id, orders, email, firstName, lastName, role, follows } = user;
+    [combineActions(actions.SIGN_IN, actions.SIGN_UP, actions.RESET_PASSWORD)](state) {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    },
+    [actions.SIGN_IN_SUCCESS]: (state, { response }) => {
+      const { token, user } = response;
+      const { _id, email, firstName = '', lastName = '', role } = user;
 
-        return {
-          ...state,
-          isLoading: false,
+      return {
+        ...state,
+        info: {
           _id,
-          orders,
-          follows,
           email,
           firstName,
           lastName,
           role,
           token,
-          isAuth: true,
-          errors: null,
-        };
-      }
-
-      return defaultState;
-    },
-    [actions.LOGIN_FAIL]: (state, { payload }) => ({
-      ...state,
-      isLoading: false,
-      isAuth: false,
-      errors: payload && payload.response,
-    }),
-    [actions.CLEAR_ERRORS]: (state) => ({
-      ...state,
-      errors: '',
-    }),
-    [UPDATE_USER_PROFILE_SUCCESS]: (state, { payload = {} }) => {
-      const { firstName, lastName, email, follows } = payload.response;
-
-      return {
-        ...state,
-        firstName,
-        lastName,
-        email,
-        follows,
+        },
+        isLoading: false,
+        isSuccess: true,
+        isAuth: true,
       };
     },
-    [actions.SIGN_UP]: (state) => ({
-      ...state,
-      isLoading: true,
-    }),
     [actions.SIGN_UP_SUCCESS]: (state) => ({
       ...state,
       isLoading: false,
       isSuccess: true,
       message: 'Your Account has been created!',
-    }),
-    [actions.SIGN_UP_FAIL]: (state, { payload }) => ({
-      ...state,
-      isLoading: false,
-      isSuccess: false,
-      message: payload && payload.response,
-    }),
-    [actions.RESET_PASSWORD]: (state) => ({
-      ...state,
-      isLoading: true,
     }),
     [actions.RESET_PASSWORD_SUCCESS]: (state) => ({
       ...state,
@@ -95,19 +55,20 @@ const userReducer = handleActions(
       message: 'New password was successfully sent to specified email',
       isSuccess: true,
     }),
-    [actions.RESET_PASSWORD_FAIL]: (state, { payload = {} }) => ({
-      ...state,
-      isLoading: false,
-      message: payload.response,
-      isSuccess: false,
-    }),
-    [actions.CLEAR_RESET_PASSWORD_RESPONSE_MESSAGES]: (state) => ({
+    [combineActions(actions.SIGN_IN_FAIL, actions.SIGN_UP_FAIL, actions.RESET_PASSWORD_FAIL)](
+      state,
+      { response }
+    ) {
+      return {
+        ...state,
+        isLoading: false,
+        isSuccess: false,
+        message: response?.data?.message,
+      };
+    },
+    [actions.CLEAR_ERRORS]: (state) => ({
       ...state,
       message: '',
-    }),
-    [actions.CLEAR_REGISTER_MESSAGE]: (state) => ({
-      ...state,
-      message: null,
     }),
   },
   defaultState

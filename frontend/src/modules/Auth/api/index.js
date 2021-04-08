@@ -1,5 +1,5 @@
 import api from 'api/config';
 
-export const signIn = (body) => api.post('/auth/sign_in', body);
-export const signUp = (body) => api.post('/auth/sign_up', body);
-export const resetPassword = (body) => api.put('/auth/password', body);
+export const signInRequest = (body) => api.post('/auth/sign-in', body);
+export const signUpRequest = (body) => api.post('/auth/sign-up', body);
+export const resetPasswordRequest = (body) => api.put('/auth/reset-password', body);

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Snack from 'common/components/SnackBar';
 import { validateEmail, validatePassword } from 'helpers/validations';
 import LoginModal from '../components/LoginModal';
-import { CLEAR_ERRORS, LOGIN } from '../actions';
+import { CLEAR_ERRORS, SIGN_IN } from '../actions';
 import { useCommonContext } from 'common/contexts/CommonContext';
 import { userSelector } from '../selectors';
 
@@ -24,13 +24,17 @@ const LoginModalContainer = () => {
 
   const dispatch = useDispatch();
 
-  const { errors } = useSelector(userSelector);
+  const { message, isSuccess } = useSelector(userSelector);
 
   useEffect(() => setIsLoginError(false), []);
 
   useEffect(() => {
     setFormData(initialState);
   }, [isLoginModalShowed]);
+
+  useEffect(() => {
+    handleShowLoginModal(false);
+  }, [isSuccess]);
 
   const isEmailValid = useMemo(() => validateEmail(formData.email), [formData.email]);
   const isPasswordValid = useMemo(() => validatePassword(formData.password), [formData.password]);
@@ -60,7 +64,7 @@ const LoginModalContainer = () => {
     (event) => {
       event.preventDefault();
 
-      dispatch(LOGIN(formData));
+      dispatch(SIGN_IN(formData));
     },
     [formData, dispatch]
   );
@@ -83,7 +87,7 @@ const LoginModalContainer = () => {
         handleShowResetPasswordModal={showResetPasswordModalHandler}
         handleShowRegisterModal={showRegisterModalHandler}
       />
-      <Snack message={errors} onHandleClose={handleErrorClear} />
+      <Snack message={message} onHandleClose={handleErrorClear} />
     </>
   );
 };

@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const router = require('./router/index.js');
 const config = require('./config');
@@ -8,6 +9,7 @@ const app = express();
 
 connectDatabase();
 
+app.use(cors());
 app.use(express.json());
 
 router.get('/ping', (req, res) => {

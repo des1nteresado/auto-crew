@@ -5,7 +5,7 @@ import Snack from 'common/components/SnackBar';
 import { validateEmail } from 'helpers/validations';
 import { validatePassword, validateConfirmPassword } from '../helpers/validations';
 import RegisterModal from '../components/RegisterModal';
-import { CLEAR_REGISTER_MESSAGE, SIGN_UP } from '../actions';
+import { CLEAR_ERRORS, SIGN_UP } from '../actions';
 import { useCommonContext } from 'common/contexts/CommonContext';
 
 const initialState = {
@@ -25,11 +25,15 @@ const RegisterModalContainer = () => {
 
   const dispatch = useDispatch();
 
-  const { success, message } = useSelector((state) => state.user);
+  const { isSuccess, message } = useSelector((state) => state.user);
 
   useEffect(() => {
     setFormData(initialState);
   }, [isRegisterModalShowed]);
+
+  useEffect(() => {
+    handleShowRegisterModal(false);
+  }, [isSuccess]);
 
   const isEmailValid = useMemo(() => validateEmail(formData.email), [formData.email]);
   const isPasswordValid = useMemo(() => validatePassword(formData.password), [formData.password]);
@@ -66,7 +70,7 @@ const RegisterModalContainer = () => {
   );
 
   const handleRegisterMessageClear = useCallback(() => {
-    dispatch(CLEAR_REGISTER_MESSAGE());
+    dispatch(CLEAR_ERRORS());
   }, [dispatch]);
 
   return (
@@ -83,7 +87,7 @@ const RegisterModalContainer = () => {
         handleShowLoginModal={showLoginModalHandler}
         handleShowRegisterModal={handleShowRegisterModal}
       />
-      <Snack isSuccess={success} message={message} onHandleClose={handleRegisterMessageClear} />
+      <Snack isSuccess={isSuccess} message={message} onHandleClose={handleRegisterMessageClear} />
     </>
   );
 };

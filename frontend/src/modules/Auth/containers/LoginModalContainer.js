@@ -33,7 +33,9 @@ const LoginModalContainer = () => {
   }, [isLoginModalShowed]);
 
   useEffect(() => {
-    handleShowLoginModal(false);
+    if (isSuccess) {
+      handleShowLoginModal(false);
+    }
   }, [isSuccess]);
 
   const isEmailValid = useMemo(() => validateEmail(formData.email), [formData.email]);

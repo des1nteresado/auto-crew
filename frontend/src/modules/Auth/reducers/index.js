@@ -25,7 +25,7 @@ const userReducer = handleActions(
       };
     },
     [actions.SIGN_IN_SUCCESS]: (state, { response }) => {
-      const { token, user } = response;
+      const { token, user } = response.data;
       const { _id, email, firstName = '', lastName = '', role } = user;
 
       return {

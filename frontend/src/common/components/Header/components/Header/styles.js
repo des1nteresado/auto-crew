@@ -41,7 +41,6 @@ const styles = (theme) => ({
   },
   logo: {
     cursor: 'pointer',
-    marginLeft: 'auto',
     height: 50,
     width: 100,
     [theme.breakpoints.down('sm')]: {

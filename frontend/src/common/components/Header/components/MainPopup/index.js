@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, Menu, MenuItem, Box } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 import { useCommonContext } from 'common/contexts/CommonContext';
 import styles from './styles';
+import ROUTES from 'modules/Navigation/routes';
 
 const MainPopup = ({ classes, anchorEl, handleCloseMenu, isAuth, showModalHandler }) => {
   const { handleShowLoginModal, handleShowRegisterModal } = useCommonContext();
+  const history = useHistory();
 
   return (
     <Menu
@@ -26,6 +29,7 @@ const MainPopup = ({ classes, anchorEl, handleCloseMenu, isAuth, showModalHandle
     >
       {isAuth ? (
         <Box>
+          <MenuItem onClick={() => history.push(ROUTES.PROFILE_SETTIGNS_PAGE)}>Profile page</MenuItem>
           <MenuItem
             className={classes.logoutButton}
             onClick={() => {
